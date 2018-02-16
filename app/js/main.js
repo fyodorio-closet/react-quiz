@@ -20187,6 +20187,12 @@
 	    }
 
 	    _createClass(Results, [{
+	        key: 'restartTest',
+	        value: function restartTest(e) {
+	            e.preventDefault();
+	            window.location.reload();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var percent = this.props.score / this.props.questions.length * 100;
@@ -20219,8 +20225,8 @@
 	                        message
 	                    ),
 	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '/app', className: 'btn btn-info' },
+	                        'button',
+	                        { className: 'btn btn-info', onClick: this.restartTest.bind(this) },
 	                        'Take Again'
 	                    )
 	                )
