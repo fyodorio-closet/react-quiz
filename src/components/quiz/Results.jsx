@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class Results extends Component{
-    
+    restartTest(e) {
+        e.preventDefault();
+        window.location.reload();
+    }
     render(){
         var percent = this.props.score / this.props.questions.length * 100;
         if (percent > 80) {
@@ -17,7 +20,7 @@ class Results extends Component{
                 <div className="card-header">You Got {this.props.score} Out Of {this.props.questions.length}</div>
                 <div className="card-body">
                     <h2>{percent}% - {message}</h2>
-                    <a href="/app" className="btn btn-info">Take Again</a>
+                    <button className="btn btn-info" onClick={this.restartTest.bind(this)}>Take Again</button>
                 </div>
                 
             </div>
